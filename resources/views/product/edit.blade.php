@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div class="">
+        {{ Session::get('message') }}
+    </div>
     <div class="container mx-auto">
         <h1 class="text-2xl font-bold mb-4">Edit Product</h1>
         <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
@@ -18,15 +21,27 @@
                 <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
                 <input type="text" name="name" id="name" class="form-input rounded-md w-full"
                     value="{{ $product->name }}">
+
+                @error('name')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
                 <textarea name="description" id="description" class="form-textarea rounded-md w-full"> {{ $product->description }}</textarea>
+
+                @error('description')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
                 <input type="number" name="price" id="price" class="form-input rounded-md w-full"
                     value="{{ $product->price }}">
+
+                @error('price')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">
@@ -42,6 +57,10 @@
                 <label for="quantity" class="block text-gray-700 text-sm font-bold mb-2">Quantity</label>
                 <input type="number" name="quantity" id="quantity" class="form-input rounded-md w-full"
                     value="{{ $product->quantity }}">
+
+                @error('quantity')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
             <div class="flex items-center justify-between">
                 <button type="submit"
