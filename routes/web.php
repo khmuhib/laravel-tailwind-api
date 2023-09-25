@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BoyController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProductController;
@@ -39,12 +40,12 @@ Route::prefix('course')->name('course.')->group(function () {
     Route::delete('/delete/{id}', [CourseController::class, 'destroy'])->name('delete');
 });
 
-// Route::prefix('student')->name('student.')->group(function () {
-//     Route::get('/', [StudentController::class, 'index'])->name('index');
-//     Route::get('/create', [StudentController::class, 'create'])->name('create');
-//     Route::post('/store', [StudentController::class, 'store'])->name('store');
-//     Route::get('/show/{id}', [StudentController::class, 'show'])->name('show');
-//     Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('edit');
-//     Route::put('/update/{id}', [StudentController::class, 'update'])->name('update');
-//     Route::delete('/delete/{id}', [StudentController::class, 'destroy'])->name('delete');
-// });
+Route::prefix('boys')->name('boys.')->group(function () {
+    Route::get('/', [BoyController::class, 'index'])->name('index');
+    Route::get('/create', [BoyController::class, 'create'])->name('create');
+    Route::post('/store', [BoyController::class, 'store'])->name('store');
+    Route::get('/show/{id}', [BoyController::class, 'show'])->name('show');
+    Route::get('/edit/{id}', [BoyController::class, 'edit'])->name('edit');
+    Route::put('/update/{id}', [BoyController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [BoyController::class, 'destroy'])->name('delete');
+});
