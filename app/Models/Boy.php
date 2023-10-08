@@ -15,4 +15,9 @@ class Boy extends Model
         'phone',
         'address',
     ];
+
+    // public function phones()
+    // {
+    //     return $this->hesOne(Phone::class);
+    // }
 }

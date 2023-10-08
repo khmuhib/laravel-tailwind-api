@@ -3,6 +3,7 @@
 use App\Http\Controllers\BoyController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,8 @@ Route::prefix('boys')->name('boys.')->group(function () {
     Route::get('/edit/{id}', [BoyController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [BoyController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [BoyController::class, 'destroy'])->name('delete');
+});
+
+Route::prefix('phone')->name('phone.')->group(function () {
+    Route::get('/', [PhoneController::class, 'index'])->name('index');
 });
