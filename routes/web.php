@@ -3,8 +3,10 @@
 use App\Http\Controllers\BoyController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProductController;
+use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,4 +55,8 @@ Route::prefix('boys')->name('boys.')->group(function () {
 
 Route::prefix('phone')->name('phone.')->group(function () {
     Route::get('/', [PhoneController::class, 'index'])->name('index');
+});
+
+Route::prefix('news')->name('news.')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('index');
 });
